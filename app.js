@@ -1,9 +1,16 @@
 $(function () {
 
-    $.getJSON('api/data?callback=?', function (data) {
-        var combination = data.combination;  
-        
-        var comboArray = Array(combination.length | 1).fill(0);
+    var clock = $('.your-clock').FlipClock({
+        countdown: true,
+        autoStart: false,
+        clockFace: 'MinuteCounter'
+    });
+    clock.setTime(600);
+    clock.start();
+
+    $.getJSON('api/data', function (data) {
+        var combination = data.combination || [1];
+        var comboArray = Array(combination.length || 1).fill(0);
 
         var gridIncrement = $(".lock-dial ul").css('line-height').replace('px', '') / 2;
         var numNums = $(".lock-dial:eq(0) ul li").length;
@@ -71,6 +78,7 @@ $(function () {
                             }, function () {
                                 $this.fadeOut(function () {
                                     $('.welcome-message').fadeIn();
+                                    clock.stop();
                                 });
                             });
                         });
@@ -82,10 +90,3 @@ $(function () {
 });
 
 
-var clock = $('.your-clock').FlipClock({
-    countdown: true,
-    autoStart: false, 
-    clockFace: 'MinuteCounter'
-});
-clock.setTime(600);
-clock.start();

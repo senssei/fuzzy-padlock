@@ -24,7 +24,7 @@ h1{
 	border: 1px solid #cfd3d6;
 	background: #ccc;
 	text-align: center;
-	width: 588px;
+	width: 669px;
 	background: -webkit-linear-gradient(top, #eee 0%,#949ba0 100%);
 	background: linear-gradient(to bottom, #eee 0%,#949ba0 100%);
 	border-radius: 4px;
@@ -79,7 +79,7 @@ h1{
 }
 
 #lock-wrapper{
-	width: 553px;
+	width: 632px;
 	padding: 0 20px 0 8px;
 	border-radius: 7px;
 	height: 120px;
